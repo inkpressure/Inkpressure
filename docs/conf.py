@@ -1,4 +1,4 @@
-# inkpressure documentation build configuration file, created by
+# inkpresure_app documentation build configuration file, created by
 # sphinx-quickstart.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -39,7 +39,7 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # General information about the project.
-project = "inkpressure"
+project = "inkpresure_app"
 copyright = """2019, Nick Kyriakakis"""
 
 # The version info for the project you're documenting, acts as replacement for
@@ -182,8 +182,8 @@ latex_elements = {
 latex_documents = [
     (
         "index",
-        "inkpressure.tex",
-        "inkpressure Documentation",
+        "inkpresure_app.tex",
+        "inkpresure_app Documentation",
         """Nick Kyriakakis""",
         "manual",
     )
@@ -217,8 +217,8 @@ latex_documents = [
 man_pages = [
     (
         "index",
-        "inkpressure",
-        "inkpressure Documentation",
+        "inkpresure_app",
+        "inkpresure_app Documentation",
         ["""Nick Kyriakakis"""],
         1,
     )
@@ -236,10 +236,10 @@ man_pages = [
 texinfo_documents = [
     (
         "index",
-        "inkpressure",
-        "inkpressure Documentation",
+        "inkpresure_app",
+        "inkpresure_app Documentation",
         """Nick Kyriakakis""",
-        "inkpressure",
+        "inkpresure_app",
         """Behold My Awesome Project!""",
         "Miscellaneous",
     )

@@ -4,8 +4,8 @@ Base settings to build other settings files upon.
 
 import environ
 
-ROOT_DIR = environ.Path(__file__) - 3  # (inkpressure/config/settings/base.py - 3 = inkpressure/)
-APPS_DIR = ROOT_DIR.path('inkpressure')
+ROOT_DIR = environ.Path(__file__) - 3  # (inkpresure_app/config/settings/base.py - 3 = inkpresure_app/)
+APPS_DIR = ROOT_DIR.path('inkpresure_app')
 
 env = environ.Env()
 
@@ -70,7 +70,7 @@ THIRD_PARTY_APPS = [
     'rest_framework',
 ]
 LOCAL_APPS = [
-    'inkpressure.users.apps.UsersAppConfig',
+    'inkpresure_app.users.apps.UsersAppConfig',
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -80,7 +80,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
 MIGRATION_MODULES = {
-    'sites': 'inkpressure.contrib.sites.migrations'
+    'sites': 'inkpresure_app.contrib.sites.migrations'
 }
 
 # AUTHENTICATION
@@ -242,9 +242,9 @@ ACCOUNT_EMAIL_REQUIRED = True
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_EMAIL_VERIFICATION = 'optional'
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_ADAPTER = 'inkpressure.users.adapters.AccountAdapter'
+ACCOUNT_ADAPTER = 'inkpresure_app.users.adapters.AccountAdapter'
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-SOCIALACCOUNT_ADAPTER = 'inkpressure.users.adapters.SocialAccountAdapter'
+SOCIALACCOUNT_ADAPTER = 'inkpresure_app.users.adapters.SocialAccountAdapter'
 
 
 # Your stuff...

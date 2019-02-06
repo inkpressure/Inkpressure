@@ -17,7 +17,7 @@ urlpatterns = [
     # User management
     path(
         "users/",
-        include("inkpressure.users.urls", namespace="users"),
+        include("inkpresure_app.users.urls", namespace="users"),
     ),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
