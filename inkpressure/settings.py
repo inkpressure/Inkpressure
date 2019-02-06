@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     ##
+    'bootstrap4',
+    ##
     'inky',
 ]
 
@@ -52,6 +54,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'inkpressure.urls'
+
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
 
 TEMPLATES = [
     {
