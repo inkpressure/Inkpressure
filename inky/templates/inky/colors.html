@@ -1,2 +1,18 @@
 {% extends 'inky/base.html' %}
-{% block title %} home {% endblock %}
+{% load staticfiles %}
+{% block title %} colors {% endblock %}
+{% block extra_js %}
+  <script src="{% static 'js/iro.min.js' %}"></script>
+{% endblock %}
+{% block content %}
+<div id="color-picker-container"></div>
+<script>
+var demoColorPicker = new iro.ColorPicker("#color-picker-container", {
+  // Set the size of the color picker UI
+  width: 320,
+  height: 320,
+  // Set the initial color to red
+  color: "#f00"
+});
+</script>
+{% endblock %}
