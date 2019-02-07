@@ -1,0 +1,3 @@
+django
+django_bootstrap4
+django_localflavor

@@ -5,7 +5,8 @@ __pycache__/
 *$py.class
 
 # virtualenv
-env
+ink_env/
+env/
 
 # C extensions
 *.so

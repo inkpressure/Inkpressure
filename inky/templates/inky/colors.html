@@ -7,12 +7,16 @@
 {% block content %}
 <div id="color-picker-container"></div>
 <script>
-var demoColorPicker = new iro.ColorPicker("#color-picker-container", {
+var picker = new iro.ColorPicker("#color-picker-container", {
   // Set the size of the color picker UI
   width: 320,
   height: 320,
   // Set the initial color to red
   color: "#f00"
 });
+function exm(color) {
+  alert(color.hexString)
+}
+picker.on("input:end", exm)
 </script>
 {% endblock %}
