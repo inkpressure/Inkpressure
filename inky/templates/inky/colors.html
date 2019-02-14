@@ -4,8 +4,20 @@
 {% block extra_js %}
   <script src="{% static 'js/iro.min.js' %}"></script>
 {% endblock %}
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'css/color.css' %}" />
+{% endblock %}
 {% block content %}
-<div id="color-picker-container"></div>
+  <div class="container">
+  <div id="color-triage">palette <button onclick="createpalette()">create</button></div>
+    <div id="palette">
+      order details
+      <table id="ptable">
+        <tr><td>Name</td><td>Color</td><td>Custom</td></tr>
+      </table>
+    </div>
+  <div id="color-picker-container"></div>
+  </div>
 <script>
 var picker = new iro.ColorPicker("#color-picker-container", {
   // Set the size of the color picker UI
@@ -14,9 +26,38 @@ var picker = new iro.ColorPicker("#color-picker-container", {
   // Set the initial color to red
   color: "#f00"
 });
-function exm(color) {
-  alert(color.hexString)
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
 }
-picker.on("input:end", exm)
+function rgbToHex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
+function removefrompalette(color){
+  var x = document.getElementById('triage-'+color);
+  x.parentElement.removeChild(x);
+}
+function createpalette(){
+  var p = document.getElementById('ptable');
+  var x = document.getElementsByClassName("triage-box");
+  for (i = 0; i < x.length; i++) {
+    var c = x[i].id.replace('triage-','');
+    var n = document.getElementById('label-'+c).value;
+    if (n=='[label]') n = 'Paint';
+    var t = document.getElementById('custom-'+c);
+    var tt = 'n';
+    if (t.checked) tt='y';
+    p.innerHTML += '<tr><td>'+n+'</td><td>'+c+'</td><td>'+tt+'</td></tr>'
+  }
+}
+function triage(color) {
+  document.getElementById('color-triage').innerHTML += '<div class="triage-box" id="triage-'+color.hexString+'" style="background-color:'+color.hexString+'">' +
+    '<a href="#" onclick="removefrompalette(\''+color.hexString+'\')">X</a>' +
+    '<input id="label-'+color.hexString+'" type="text" size="10" value="[label]">' +
+    'custom <input id="custom-'+color.hexString+'" type="checkbox">' +
+    '</div>';
+}
+picker.on("input:end", triage)
 </script>
 {% endblock %}

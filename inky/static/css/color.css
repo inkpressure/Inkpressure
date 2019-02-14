@@ -1,0 +1,15 @@
+div.triage-box {
+  width:200px;
+}
+div#color-triage {
+  width:330px;
+  height:200px;
+  background-color:white;
+  float:right;
+}
+div#palette {
+  width:330px;
+  height:200px;
+  background-color:gray;
+  float:left;
+}
