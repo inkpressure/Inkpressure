@@ -1,27 +1,45 @@
-{% load staticfiles %}
+{% load static %}
 {% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>inkPRESSURE | {% block title %}Title{% endblock %}</title>
-{% bootstrap_css %}
-{% bootstrap_javascript jquery='full' %}
+  <meta charset="UTF-8">
+  <title>Inkpressure.com | {% block title %}Title{% endblock %}</title>
+  {% bootstrap_css %}
+  {% bootstrap_javascript jquery='full' %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/inkpressure_magik.css' %}">
+  <link rel="icon" type="image/.ico" href="{% static 'img/black_spray_colors_can.ico' %}"/>
+  {% block extra_css %}{% endblock %}
+  {% block extra_js %}{% endblock %}
 
-    <style>
-      body {
-        background-image:url('{% static 'inky/inkpressure.png' %}');
-        background-size:cover;
-      }
-    </style>
-{% block extra_css %}{% endblock %}
-{% block extra_js %}{% endblock %}
-
+  <style>
+    body {
+      background-image: url('{% static 'img/Background_Wall_Can.svg' %}');
+      background-size: cover;
+    }
+    .navbar-toggler-icon {
+      display: inline-block;
+      width: 3.5em;
+      height: 5.0em;
+      vertical-align: middle;
+      content: "";
+      background: no-repeat center center;
+      background-image: url('{% static 'img/fingerprint_colored_animation.svg' %} ');
+      background-size: 100% 100%;
+    }
+  </style>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand" href="/">
+
+    <img style="min-width: 420px" src="{% static 'img/Inkpressure_animation.svg' %}"
+         alt="inkpressure.com logo"></a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -34,7 +52,8 @@
         <a class="nav-link" href="{% url 'ink-colors' %}">Colors</a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
           Dropdown
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
