@@ -6,76 +6,58 @@
 <head>
   <meta charset="UTF-8">
   <title>Inkpressure.com | {% block title %}Title{% endblock %}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   {% bootstrap_css %}
   {% bootstrap_javascript jquery='full' %}
-  <link rel="stylesheet" type="text/css" href="{% static 'css/inkpressure_magik.css' %}">
+{% comment %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/inkpr essure_magik.css' %}">
+{% endcomment %}
+  <link rel="stylesheet" type="text/css" href='css/inkpressure.css'>
   <link rel="icon" type="image/.ico" href="{% static 'img/black_spray_colors_can.ico' %}"/>
   {% block extra_css %}{% endblock %}
   {% block extra_js %}{% endblock %}
 
-  <style>
-    body {
-      background-image: url('{% static 'img/Background_Wall_Can.svg' %}');
-      background-size: cover;
-    }
-    .navbar-toggler-icon {
-      display: inline-block;
-      width: 3.5em;
-      height: 5.0em;
-      vertical-align: middle;
-      content: "";
-      background: no-repeat center center;
-      background-image: url('{% static 'img/fingerprint_colored_animation.svg' %} ');
-      background-size: 100% 100%;
-    }
-  </style>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg">
-  <a class="navbar-brand" href="/">
-
-    <img style="min-width: 420px" src="{% static 'img/Inkpressure_animation.svg' %}"
-         alt="inkpressure.com logo"></a>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'ink-about' %}">About</a>
+  <nav id="debug-nav" class="debug navbar-expand-sm">
+    <ul class="navbar-nav nav-justified d-flex d-align-items-center">
+      <li class="nav-item justify-content-start">
+          <a class="navbar-brand" href="#">
+        <img src="{%  static 'img/tv.svg' %}" class="web debug-icon" />
+        <img src="{%  static 'img/cellphone.svg' %}" class="mobile debug-icon" />
+      </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'ink-colors' %}">Colors</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
+      <li class="nav-item navbar-text justify-content-start mobile">MOBILE</li>
+      <li class="nav-item navbar-text justify-content-start web">DESKTOP</li>
+      <li class="nav-item navbar-text justify-content-start ">DEBUG</li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+  </nav>
+<div id="site-mobile" class="container-fluid mobile d-flex d-md-none">
+  {% block mobile-full %}
+    <div class="row">
+      <div class="col-9 align-top">
+        <img src="{% static 'img/Inkpressure_animation.svg' %}" id="mobile-logo-anim" class="mobile-top"/>
+      </div>
+      <div class="col-3 align-top">
+        <img src="{% static 'img/fingerprint_colored.svg' %}" id="mobile-logo-spray" class="mobile-top"/>
+      </div>
+    </div>
+
+  <div id="spray" class="container-fluid">
+
   </div>
-</nav>
-{% block content %}
-  hello
-{% endblock %}
-{% bootstrap_messages %}
+  {% endblock %}
+    </div>
+
+<div id="site-web" class="container web d-sm-none d-md-flex">
+  {% block web-full %}
+    <nav class="navbar-expand">
+      <div class="nav-brand" id="web-logo">
+        <img src="{% static 'img/fingerprint_colored.svg' %}" id="web-logo-fingerprint" />
+      </div>l
+    </nav>
+  {% endblock %}
+</div>
 </body>
 </html>

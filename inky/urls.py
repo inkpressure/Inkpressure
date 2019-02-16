@@ -20,7 +20,9 @@ from django.urls import path
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path(r'', TemplateView.as_view(template_name='inky/home.html'), name='ink-home'),
+    path(r'home', TemplateView.as_view(template_name='inky/home.html'), name='ink-home'),
+    path(r'base', TemplateView.as_view(template_name='inky/base.html'), name='ink-base'),
     path(r'about', TemplateView.as_view(template_name='inky/about.html'), name='ink-about'),
     path(r'colors', TemplateView.as_view(template_name='inky/colors.html'), name='ink-colors'),
+    path(r'css/inkpressure.css', TemplateView.as_view(template_name='inky/inkpressure.css', content_type='text/css'), name='ink-styles'),
 ]

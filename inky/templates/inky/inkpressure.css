@@ -1,0 +1,77 @@
+ {% load staticfiles %}
+
+#debug-nav {
+  color: black;
+  font-weight:bold;
+  font-size:1.7em;
+  background-color: lightgoldenrodyellow;
+  border-bottom: 5px darkslategrey ridge;
+}
+ #debug-nav li {
+   vertical-align: center;
+ }
+
+ .debug-icon {
+   height:36px;
+   width:36px;
+ }
+/*
+    // Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+*/
+ @media (max-width: 767px) {
+    .web {
+      visibility: hidden !important;
+    }
+ }
+ @media (min-width: 768px) {
+    .mobile {
+      visibility: hidden !important;
+    }
+
+ }
+
+ .mobile-top {
+   min-height:48px;
+   width:auto;
+ }
+
+
+/*
+#spray {
+  background-image:url('{% static "img/can.svg" %}');
+}*/
+
+/*// Small devices (landscape phones, 576px and up)*/
+/*
+@media (max-width: 768px) {
+  div#site-web, li#debug-web {
+    visibility: hidden;
+    display:none;
+  }
+    div#site-mobile, li#debug-mobile {
+      visibility: visible;
+      display: flex;
+  }
+}
+
+!*!/ Medium devices (tablets, 768px and up)*!
+@media (min-width: 768px) {  }
+
+ @media (min-width: 769px) {
+  div#site-mobile {
+    visibility: hidden;
+    display:none;
+  }
+    div#site-web {
+      visibility: visible;
+      display: flex;
+  }
+ }
+
+!*!/ Large devices (desktops, 992px and up)*!
+@media (min-width: 992px) {  }
+
+!*!/ Extra large devices (large desktops, 1200px and up)*!
+@media (min-width: 1200px) {  }
+*/
