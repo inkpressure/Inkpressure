@@ -14,32 +14,27 @@
 {% endcomment %}
   <link rel="stylesheet" type="text/css" href='css/inkpressure.css'>
   <link rel="icon" type="image/.ico" href="{% static 'img/black_spray_colors_can.ico' %}"/>
-  {% block extra_css %}{% endblock %}
+  <style type="text/css">{% block extra_css %}{% endblock %}</style>
   {% block extra_js %}{% endblock %}
 
 </head>
 
 <body>
-  <nav id="debug-nav" class="debug navbar-expand-sm">
-    <ul class="navbar-nav nav-justified d-flex d-align-items-center">
-      <li class="nav-item justify-content-start">
-          <a class="navbar-brand" href="#">
-        <img src="{%  static 'img/tv.svg' %}" class="web debug-icon" />
-        <img src="{%  static 'img/cellphone.svg' %}" class="mobile debug-icon" />
-      </a>
-      </li>
-      <li class="nav-item navbar-text justify-content-start mobile">MOBILE</li>
-      <li class="nav-item navbar-text justify-content-start web">DESKTOP</li>
-      <li class="nav-item navbar-text justify-content-start ">DEBUG</li>
-    </ul>
+  <nav id="debug-nav" class="debug navbar">
+        <img src="{%  static 'img/tv.svg' %}" class="nav-item web debug-icon" />
+        <img src="{%  static 'img/cellphone.svg' %}" class="nav-item mobile debug-icon" />
+      <span class="nav-item">DEBUG</span>
+      <span class="nav-item mobile">MOBILE</span>
+      <span class="nav-item web">WEB</span>
   </nav>
-<div id="site-mobile" class="container-fluid mobile d-flex d-md-none">
+  {% block world %}
+<div id="site-mobile" class="container mobile">
   {% block mobile-full %}
-    <div class="row">
-      <div class="col-9 align-top">
+    <div class="row" id="mobile-logo-bar">
+      <div class="col col-9 text-left">
         <img src="{% static 'img/Inkpressure_animation.svg' %}" id="mobile-logo-anim" class="mobile-top"/>
       </div>
-      <div class="col-3 align-top">
+      <div class="col col-3 text-right">
         <img src="{% static 'img/fingerprint_colored.svg' %}" id="mobile-logo-spray" class="mobile-top"/>
       </div>
     </div>
@@ -55,9 +50,10 @@
     <nav class="navbar-expand">
       <div class="nav-brand" id="web-logo">
         <img src="{% static 'img/fingerprint_colored.svg' %}" id="web-logo-fingerprint" />
-      </div>l
+      </div>
     </nav>
   {% endblock %}
 </div>
+{% endblock %}
 </body>
 </html>

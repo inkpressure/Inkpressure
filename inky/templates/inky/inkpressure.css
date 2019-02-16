@@ -7,35 +7,36 @@
   background-color: lightgoldenrodyellow;
   border-bottom: 5px darkslategrey ridge;
 }
- #debug-nav li {
-   vertical-align: center;
- }
 
  .debug-icon {
    height:36px;
    width:36px;
  }
-/*
-    // Extra small devices (portrait phones, less than 576px)
-// No media query since this is the default in Bootstrap
-*/
- @media (max-width: 767px) {
-    .web {
-      visibility: hidden !important;
-    }
- }
- @media (min-width: 768px) {
-    .mobile {
-      visibility: hidden !important;
-    }
 
- }
+ @media (max-width: 767px) { .web    { visibility: hidden !important; }}
+ @media (min-width: 768px) { .mobile { visibility: hidden !important; }}
 
- .mobile-top {
-   min-height:48px;
-   width:auto;
- }
+ div { border:1px solid black; }
 
+#mobile-logo-bar {
+  height:48px;
+  min-height: 10%;
+  max-height: 20%;
+}
+
+#mobile-logo-anim {
+  height: 100%;
+  width: auto;
+  border:1px solid red;
+
+}
+
+#mobile-logo-spray {
+  height: 100%;
+  width: auto;
+  border:1px solid green;
+
+}
 
 /*
 #spray {

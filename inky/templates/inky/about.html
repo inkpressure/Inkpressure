@@ -1,2 +1,27 @@
 {% extends 'inky/base.html' %}
 {% block title %} about {% endblock %}
+{% block extra_css %}
+  div {
+    border:1px solid black;
+  }
+{% endblock %}
+{% block world %}
+  <nav class="navbar">
+
+    <span class="navbar-item navbar-brand">one</span>
+    <span class="navbar-item">two</span>
+    <span class="navbar-item">three</span>
+
+  </nav>
+<div class="container">
+<div class="row">
+  <div class="col col-9">
+    nine
+  </div>
+  <div class="col col-3 text-right">
+    three
+  </div>
+</div>
+</div>
+
+{% endblock %}
