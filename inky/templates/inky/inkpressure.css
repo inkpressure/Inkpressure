@@ -13,31 +13,90 @@
    width:36px;
  }
 
- @media (max-width: 767px) { .web    { visibility: hidden !important; }}
- @media (min-width: 768px) { .mobile { visibility: hidden !important; }}
+ @media (max-width: 767px) { .web    { visibility: hidden !important; display:none; }}
+ @media (min-width: 768px) { .mobile { visibility: hidden !important; display:none; }}
 
- div { border:1px solid black; }
+/* div { border:1px dashed black; }*/
 
-#mobile-logo-bar {
-  height:48px;
-  min-height: 10%;
-  max-height: 20%;
+ * { margin: 0; }
+ html, body { height:100%; }
+ html { overflow:hidden; }
+
+#nav-mobile {
+
+  width:100%;
+  border:1px dotted blue;
 }
 
 #mobile-logo-anim {
-  height: 100%;
-  width: auto;
+  /*min-height:24px;*/
+  height: 15vh;
+  width: auto; /*
+   height: -webkit-calc(100%);
+   height: -moz-calc(100%);
+   height: calc(100%);
+  min-height: 48px;
+  max-height: 100px;
+  width: auto !important;*/
   border:1px solid red;
-
 }
 
-#mobile-logo-spray {
-  height: 100%;
+#mobile-logo-print {
+  height: 15vh;
   width: auto;
-  border:1px solid green;
-
+  /*
+  min-height: 48px;
+  max-height: 100px;
+  width: auto !important;*/
+  /*border:1px solid green;*/
 }
 
+.web-logo {
+  height:100px;
+  width:auto;
+}
+
+/* temporary, fix the logo */
+ #web-logo-anim {
+   height:200px;
+ }
+
+
+ #web-acct {
+   position: absolute;
+   top:200px;
+   left-min:50px;
+   right-min:50px;
+   width:70vw;
+   height:60vh;
+   background-color:lightcyan;
+   border:20px blue ridge;
+   border-radius:10vh;
+   padding:5vh;
+   font-family: 'Coiny', cursive;
+   font-size:24px;
+   /*visibility:hidden;*/
+   z-index:100;
+ }
+
+ .web-icon {
+   font-size:24px;
+   color:steelblue;
+ }
+
+ #web-welcome {
+   color:royalblue;
+   text-shadow:1px 1px steelblue;
+ }
+
+ #web-login-text {
+    color:darkblue;
+    text-shadow:1px 1px deepskyblue;
+ }
+ .social-icon {
+   width:24px;
+   height:24px;
+ }
 /*
 #spray {
   background-image:url('{% static "img/can.svg" %}');

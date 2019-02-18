@@ -14,8 +14,14 @@
 {% endcomment %}
   <link rel="stylesheet" type="text/css" href='css/inkpressure.css'>
   <link rel="icon" type="image/.ico" href="{% static 'img/black_spray_colors_can.ico' %}"/>
-  <style type="text/css">{% block extra_css %}{% endblock %}</style>
-  {% block extra_js %}{% endblock %}
+  <script type="text/javascript" src="js/inkpressure.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+  <style type="text/css">
+    {% block extra_css %}{% endblock %}
+  </style>
+  {% block extra_js %}
+
+  {% endblock %}
 
 </head>
 
@@ -30,15 +36,18 @@
   {% block world %}
 <div id="site-mobile" class="container mobile">
   {% block mobile-full %}
-    <div class="row" id="mobile-logo-bar">
-      <div class="col col-9 text-left">
-        <img src="{% static 'img/Inkpressure_animation.svg' %}" id="mobile-logo-anim" class="mobile-top"/>
+    <nav class="navbar" id="nav-mobile" class="res">
+      <span class="navbar-item text-left">
+        <img src="{% static 'img/Inkpressure_animation.svg' %}" id="mobile-logo-anim" />
+      </span>
+      <span class="navbar-item text-right"ink">
+        <a href="#">
+        <img src="{% static 'img/fingerprint_colored.svg' %}" id="mobile-logo-print" />
+        </a>
+      </span>
+    </nav>
       </div>
-      <div class="col col-3 text-right">
-        <img src="{% static 'img/fingerprint_colored.svg' %}" id="mobile-logo-spray" class="mobile-top"/>
-      </div>
-    </div>
-
+    </nav>
   <div id="spray" class="container-fluid">
 
   </div>
@@ -47,11 +56,40 @@
 
 <div id="site-web" class="container web d-sm-none d-md-flex">
   {% block web-full %}
-    <nav class="navbar-expand">
-      <div class="nav-brand" id="web-logo">
-        <img src="{% static 'img/fingerprint_colored.svg' %}" id="web-logo-fingerprint" />
-      </div>
+    <nav class="navbar-expand" id="web-nav">
+      <img class="nav-brand nav-item web-logo" src="{% static 'img/Inkpressure_animation.svg' %}" id="web-logo-anim" />
+      <a href="#" onclick="handleConfigClick()">
+        <img class="nav-brand nav-item web-logo" src="{% static 'img/fingerprint_colored.svg' %}" id="web-logo-print" />
+      </a>
     </nav>
+    <div id="web-acct" class="web-modal">
+      {% if user.isAuthenticated %}
+        You are logged in as {{  user.getName }}
+      {% else %}
+        <div class="container">
+        <div class="row">
+          <div class="col col-1 text-center">
+            <a href="#"><img class="social-icon" src="{%  static 'img/facebook.svg' %}"/></a>
+            <a href="#"><img class="social-icon" src="{%  static 'img/google-plus.svg' %}"/></a>
+            <a href="#"><img class="social-icon" src="{%  static 'img/twitter.svg' %}"/></a>
+{% comment %}
+            <a href="#"><img class="social-icon" src="{%  static 'img/linkedin.svg' %}"/></a>
+{% endcomment %}
+          </div>
+          <div class="col col-10 text-center">
+            <span id="web-welcome">Welcome to InkPressure!</span>
+                         <hr />
+            <span id="web-login-text">If you do not have an InkPressure
+            account yet, we'll create one for you when you link an account on
+            the left.</span>
+          </div>
+          <div class="col col-1">
+            <a class="web-icon" href="#" onclick="handleConfigClose()">X</a>
+          </div>
+        </div>
+        </div>
+      {% endif %}
+    </div>
   {% endblock %}
 </div>
 {% endblock %}
